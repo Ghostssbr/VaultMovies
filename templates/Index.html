@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultMovies API</title>
+   <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>VaultMovies API</h1>
+            <p class="tagline">Sua fonte para filmes e gerenciamento de chaves API</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#documentacao">Documentação</a></li>
+                <li><a href="#">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="intro">
+        <div class="content">
+            <h2>Bem-vindo à VaultMovies API</h2>
+            <p>A API VaultMovies oferece acesso completo a filmes, gerenciamento de chaves API e muito mais. Explore os endpoints abaixo.</p>
+            <a href="#documentacao" class="btn">Veja a Documentação</a>
+        </div>
+    </section>
+
+    <section id="documentacao" class="documentacao">
+        <h2>Documentação da API</h2>
+        
+        <div class="endpoint">
+            <h3 class="endpoint-title">Gerenciar Chaves API</h3>
+            <div class="endpoint-description">
+                <p>Este endpoint permite que você gere, renove ou remova chaves API associadas ao seu IP.</p>
+            </div>
+            <div class="endpoint-details">
+                <p><strong>URL:</strong> <code>/chaves</code></p>
+                <p><strong>Método:</strong> <code>POST</code> (Gerar), <code>DELETE</code> (Remover)</p>
+                <p><strong>Parâmetros:</strong> Nenhum</p>
+                <p><strong>Resposta:</strong> Uma chave API gerada ou confirmação de remoção.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h3 class="endpoint-title">Obter Todos os Filmes</h3>
+            <div class="endpoint-description">
+                <p>Este endpoint retorna uma lista de todos os filmes registrados no banco de dados.</p>
+            </div>
+            <div class="endpoint-details">
+                <p><strong>URL:</strong> <code>/api/filmes</code></p>
+                <p><strong>Método:</strong> <code>GET</code></p>
+                <p><strong>Parâmetros:</strong> Nenhum</p>
+                <p><strong>Resposta:</strong> Uma lista de filmes com suas informações básicas, como título, ano e descrição.</p>
+            </div>
+        </div>
+
+        <div class="endpoint">
+            <h3 class="endpoint-title">Obter Detalhes de um Filme</h3>
+            <div class="endpoint-description">
+                <p>Este endpoint permite que você consulte os detalhes completos de um filme específico através do seu ID.</p>
+            </div>
+            
+
+        <div class="note">
+            <p><strong>Nota:</strong> Para acessar os endpoints de filmes, você precisa de uma chave API válida, que pode ser gerada através do endpoint <code>/chaves</code>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 VaultMovies. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

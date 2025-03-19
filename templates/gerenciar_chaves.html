@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Chaves da API</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style_chaves.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VaultMovies API - Gerenciar Chaves</h1>
+            <p class="tagline">Gerencie suas chaves API para acessar a nossa base de filmes</p>
+        </header>
+
+        <section class="documentacao">
+            <h2>Documentação de Chaves API</h2>
+            <p>Para acessar os recursos da VaultMovies API, você precisará de uma chave API. Use os seguintes recursos:</p>
+
+            <div class="endpoint">
+                <h3>Gerar Nova Chave</h3>
+                <p>Gere uma nova chave API associada ao seu IP. Se uma chave ativa já existir, você receberá uma mensagem informando isso.</p>
+                <button onclick="gerarChave()">Gerar Chave</button>
+                <p id="chaveGerada"></p>
+            </div>
+
+            <div class="endpoint">
+                <h3>Chaves Existentes</h3>
+                <p>Veja todas as chaves API associadas ao seu IP e suas datas de expiração.</p>
+                <ul id="listaChaves"></ul>
+            </div>
+        </section>
+
+        <a href="/" class="voltar-docs">Voltar para a documentação</a>
+
+        <footer>
+            <p>© 2025 VaultMovies API. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        function gerarChave() {
+            fetch('/api/gerar_chave')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('chaveGerada').textContent = data.chave 
+                        ? `Chave gerada: ${data.chave}`
+                        : 'Já existe uma chave ativa para este IP.';
+                });
+        }
+
+        fetch('/api/chaves')
+            .then(response => response.json())
+            .then(data => {
+                const lista = document.getElementById('listaChaves');
+                lista.innerHTML = data.map(chave => `<li>${chave.key} - Expira: ${chave.expires_at}</li>`).join('');
+            });
+    </script>
+</body>
+</html>
