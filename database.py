@@ -7,20 +7,6 @@ DATABASE_API = "filmes.db"
 DATABASE_MANGAS = "mangas.db"
 
 # Função para resetar a tabela de chaves API
-def resetar_tabela_api_keys():
-    conn = sqlite3.connect(DATABASE_API)
-    cursor = conn.cursor()
-    cursor.execute("DROP TABLE IF EXISTS api_keys")  # Remove a tabela se existir
-    cursor.execute('''
-        CREATE TABLE api_keys (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            key TEXT NOT NULL UNIQUE,
-            ip TEXT NOT NULL,
-            expires_at TIMESTAMP NOT NULL
-        )
-    ''')  # Cria a tabela novamente
-    conn.commit()
-    conn.close()
 
 # Função para conectar ao banco de dados de chaves API
 def get_db_connection_api():
