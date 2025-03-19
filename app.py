@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request, render_template_string
 from functools import wraps
 from database import (
-    resetar_tabela_api_keys,
     get_db_connection_api,
     get_db_connection_mangas,
     gerar_chave,
@@ -107,8 +106,6 @@ def documentacao():
 @app.route("/chaves", methods=["GET"])
 def gerenciar_chaves():
     return render_template_string(open("templates/gerenciar_chaves.html").read())
-
-resetar_tabela_api_keys()
 
 if __name__ == "__main__":
     app.run(debug=True)
